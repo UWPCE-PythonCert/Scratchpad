@@ -45,3 +45,8 @@ def fun_simple(x, y=0):
     print(x, y)
 
 
+def fun_kwonly(x, y, *, this=5):
+    print(x, y, this)
+
+
+
