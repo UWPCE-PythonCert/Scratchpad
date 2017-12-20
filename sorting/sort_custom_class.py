@@ -21,10 +21,10 @@ class Donor:
 
 
 
-
     # def __lt__(self, other):
     #     return (self.name < other.name and
     #             self.donations < other.donations)
+
 
     # def __lt__(self, other):
     #     if self.name < other.name:
@@ -34,12 +34,12 @@ class Donor:
     #     else:
     #         return False
 
-    # def __lt__(self, other):
-    #     return (self.name, self.donations) < (other.name, other.donations)
+    def __lt__(self, other):
+        return (self.name, self.donations) < (other.name, other.donations)
 
-    @staticmethod
-    def sort_key(self):
-        return (self.name, self.donations)
+    # @staticmethod
+    # def sort_key(self):
+    #     return (self.name, self.donations)
 
 
 
@@ -59,6 +59,9 @@ b3 = Donor("Bob", [3])
 c1 = Donor("Chuck", [1])
 c2 = Donor("Chuck", [2])
 c3 = Donor("Chuck", [3])
+
+d1 = Donor("Bob", [3])
+d2 = Donor("Bob", [3])
 
 
 all_sorted = [a1, a2, a3, b1, b2, b3, c1, c2, c3]
@@ -81,12 +84,16 @@ def test_lt_1():
     assert not b3 < a1
 
 
+def test_lt_2():
+    d1 = Donor("Abe", [2])
+    d2 = Donor("Bob", [1])
+    assert d1 < d2
+    assert not d2 < d1
 
-# def test_lt_2():
-#     d1 = Donor("Abe", [2])
-#     d2 = Donor("Bob", [1])
-#     assert d1 < d2
-#     assert not d2 < d1
+
+
+
+
 
 
 class Donor2:
@@ -126,6 +133,7 @@ names = [("Chris", "Barker"),
          ("Bill", "Clinton"),
          ("Chuck", "Berry"),
          ("Elvis", "Presley"),
+         ("Fred", "Andrews")
          ]
 
 donor_list = [Donor2(*name, [random.random() * 1000]) for name in names]
