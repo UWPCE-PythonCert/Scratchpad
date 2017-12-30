@@ -19,23 +19,40 @@ class Donor:
     def __repr__(self):
         return "Donor({},{})".format(self.name, repr(self.donations))
 
-
-
     # def __lt__(self, other):
     #     return (self.name < other.name and
     #             self.donations < other.donations)
 
-
-    # def __lt__(self, other):
-    #     if self.name < other.name:
-    #         return True
-    #     elif self.name == other.name:
-    #         return self.donations < other.donations
-    #     else:
-    #         return False
-
     def __lt__(self, other):
         return (self.name, self.donations) < (other.name, other.donations)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # def __lt__(self, other):
+    #     return (self.name, self.donations) < (other.name, other.donations)
+
+
+
+
+
+
+
+
+
+
+
+
 
     # @staticmethod
     # def sort_key(self):
@@ -117,6 +134,11 @@ class Donor2:
     @staticmethod
     def sort_key(self):
         return (self.last_name, self.first_name, self.donations)
+
+    @staticmethod
+    def sort_by_donations(self):
+        return self.donations
+
 
     def __repr__(self):
         return "Donor({} {}, {})".format(self.first_name,
